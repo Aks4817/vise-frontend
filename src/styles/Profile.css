@@ -1,0 +1,380 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.Profile {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Profile header {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  overflow-x: hidden;
+}
+
+.Profile header .header-content {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1250px);
+}
+
+.Profile .cover-photo {
+  max-width: 1250px;
+  min-height: 160px;
+  aspect-ratio: 2.7/1;
+  background: linear-gradient(rgb(240, 242, 245) 84%, rgb(109, 109, 109));
+  border-radius: 0 0 8px 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.Profile.not-me .cover-photo {
+  pointer-events: none;
+}
+
+.Profile .cover-photo label {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Profile .cover-photo .media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+}
+
+.Profile .cover-photo .add-cover-btn {
+  width: 159px;
+  height: 36px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 16px;
+  right: 32px;
+  border-radius: 6px;
+  font-family: "SFUIText-Medium";
+  font-size: 14px;
+  column-gap: 4px;
+  position: absolute;
+  z-index: 2;
+}
+
+.Profile .cover-photo .add-cover-btn .icon {
+  font-size: 18px;
+}
+
+.Profile .user {
+  padding: 0 32px 16px 32px;
+  box-sizing: border-box;
+  display: flex;
+  margin-top: -30px;
+}
+
+.Profile .user .pfp-label {
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  border-radius: 50%;
+  padding: 4px;
+  background-color: white;
+}
+
+.Profile.not-me .user .pfp-label {
+  pointer-events: none;
+}
+
+.Profile .user .media.pfp {
+  width: 168px;
+  height: 168px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Profile .user .camera {
+  position: absolute;
+  right: 11px;
+  bottom: 11px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgb(228, 230, 235);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Profile.not-me .user .camera {
+  display: none;
+}
+
+.Profile .user .pfp-label .icon {
+  font-size: 23px;
+}
+
+.Profile .user .info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 16px 14px 16px;
+  box-sizing: border-box;
+  overflow: hidden;
+  flex: 1;
+}
+
+.Profile .user .full-name {
+  font-family: "SFUIText-Semibold";
+  font-size: 30px;
+  margin-top: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.Profile .user .friend-count {
+  font-family: "SFUIText-Medium";
+  font-size: 16px;
+  color: rgb(101, 103, 107);
+  margin-top: 6px;
+  text-decoration: none;
+}
+
+.Profile .user .friends-pfps {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  margin-left: -2px;
+  line-height: 0;
+}
+
+.Profile .user .friends-pfps a {
+  background-color: white;
+  padding: 2px;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.Profile .user .friends-pfps .media {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: brightness(1);
+}
+
+.Profile .user .friends-pfps a:not(:first-child) {
+  margin-right: -8px;
+}
+
+.Profile .profile-nav {
+  background-color: white;
+  height: 60px;
+  width: 100%;
+  padding: 0 32px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 55px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.16);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.Profile .profile-nav .intersection-trigger {
+  width: 0;
+  height: 0;
+  background-color: black;
+  position: absolute;
+  top: -56px;
+}
+
+.Profile .profile-nav .intersection-trigger.stuck + * .nav-links {
+  display: none;
+}
+
+.Profile .intersection-trigger:not(.stuck) + * .user-jump-to-top-btn {
+  display: none;
+}
+
+.Profile .nav-content {
+  width: 1186px;
+  border-top: 1px solid lightgray;
+  display: flex;
+}
+
+.Profile .nav-content .nav-links {
+  display: flex;
+  box-sizing: border-box;
+  padding-top: 4px;
+  animation: fadeIn 0.3s, slideDown 0.3s;
+}
+
+.Profile .nav-content a {
+  text-decoration: none;
+  color: black;
+  font-family: "SFUIText-Medium";
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  color: rgb(101, 103, 107);
+  height: 52px;
+  transition: 0.2s;
+}
+
+.Profile .nav-links a.selected {
+  color: rgb(24, 119, 242);
+  border-bottom: 3px solid rgb(24, 119, 242);
+}
+
+.Profile .nav-links a.unselected {
+  border-radius: 5px;
+}
+
+.Profile .user-jump-to-top-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 8px;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  height: 52px;
+  border-radius: 8px;
+  column-gap: 11px;
+  font-family: "SFUIText-Regular";
+  font-size: 16px;
+  margin-left: 10px;
+  animation: fadeIn 0.3s, slideUp 0.3s;
+}
+
+.Profile .user-jump-to-top-btn .jump-pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.Profile .profile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.Profile .pfp-label .SpinThrobber {
+  width: 146px;
+  height: 146px;
+  margin: 0;
+}
+
+.Profile header .is-uploading {
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@media (hover: hover) {
+  .Profile .cover-photo .add-cover-btn:hover {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .Profile .user .media.pfp:hover {
+    filter: brightness(0.9);
+  }
+
+  .Profile .user .camera:hover {
+    background-color: rgb(216, 218, 222);
+  }
+
+  .Profile .user .friend-count:hover {
+    text-decoration: underline;
+  }
+
+  .Profile .nav-links a.unselected:hover {
+    background-color: rgb(241, 241, 241);
+  }
+
+  .Profile .user-jump-to-top-btn:hover {
+    background-color: rgb(241, 241, 241);
+  }
+}
+
+.Profile .cover-photo .add-cover-btn:active {
+  background-color: rgb(229, 229, 228);
+  transform: scale(0.96);
+}
+
+.Profile .user .media.pfp:active {
+  filter: brightness(0.8);
+  transform: scale(0.97);
+}
+
+.Profile .user .camera:active {
+  background-color: rgb(203, 207, 211);
+  transform: scale(0.95);
+}
+
+.Profile .user .friends-pfps .media:active {
+  filter: brightness(0.8);
+  transform: scale(0.95);
+}
+
+.Profile .nav-links a.unselected:active {
+  background-color: rgb(230, 230, 230);
+}
+
+.Profile .user-jump-to-top-btn:active {
+  background-color: rgb(230, 230, 230);
+}
+
+.Profile .cover-photo .DotsThrobber {
+  filter: brightness(0.75);
+}
+
+.Profile .cover-photo .DotsThrobber .dot {
+  width: 0.5em;
+  height: 0.5em;
+  margin: 1.3em;
+}

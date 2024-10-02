@@ -1,0 +1,144 @@
+.FriendRequestCard,
+.FriendCard {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.231);
+}
+
+.FriendRequestCard a.pfp-anchor,
+.FriendCard a.pfp-anchor {
+  line-height: 0;
+}
+
+.FriendRequestCard .media.pfp,
+.FriendCard .media.pfp {
+  border-radius: 8px 8px 0 0;
+  width: calc(100% - 2px);
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border: 1px solid rgb(206, 208, 212);
+}
+
+.FriendRequestCard .details,
+.FriendCard .details {
+  box-sizing: border-box;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.FriendRequestCard .full-name,
+.FriendCard .full-name {
+  font-size: 15px;
+  font-family: "SFUIText-Medium";
+  text-decoration: none;
+  color: black;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.FriendCard .full-name {
+  text-align: center;
+}
+
+.FriendRequestCard .full-name {
+  align-self: flex-start;
+}
+
+.FriendCard .full-name {
+  align-self: center;
+}
+
+.FriendRequestCard .mutual-friends,
+.FriendCard .mutual-friends {
+  display: flex;
+  align-items: center;
+  color: rgb(101, 103, 107);
+  font-size: 13px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+.FriendRequestCard .mutual-friends::after,
+.FriendCard .mutual-friends::after {
+  content: attr(data-descr);
+  top: 22px;
+  left: 0;
+}
+
+.FriendRequestCard .mutual-friends .pfps,
+.FriendCard .mutual-friends .pfps {
+  display: flex;
+  align-items: center;
+}
+
+.FriendRequestCard .mutual-friends .media.mutual-pfp,
+.FriendCard .mutual-friends .media.mutual-pfp {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: relative;
+}
+
+.FriendRequestCard .mutual-friends .media.mutual-pfp:first-child,
+.FriendCard .mutual-friends .media.mutual-pfp:first-child {
+  z-index: 1;
+}
+
+.FriendRequestCard .mutual-friends .media.mutual-pfp:nth-child(2),
+.FriendCard .mutual-friends .media.mutual-pfp:nth-child(2) {
+  margin-left: -8px;
+}
+
+.FriendRequestCard button {
+  border: none;
+  cursor: pointer;
+  height: 36px;
+  border-radius: 6px;
+  font-family: "SFUIText-Medium";
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.FriendRequestCard button.confirm-btn {
+  background-color: rgb(27, 116, 228);
+  color: white;
+  margin-top: auto;
+}
+
+.FriendRequestCard button.delete-btn {
+  background-color: rgb(228, 230, 235);
+  margin-top: 6px;
+}
+
+.FriendRequestCard button.making-request {
+  filter: grayscale(0.5) opacity(0.5);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .FriendRequestCard .full-name:hover,
+  .FriendCard .full-name:hover {
+    text-decoration: underline;
+  }
+
+  .FriendRequestCard button:hover {
+    filter: brightness(0.95);
+  }
+}
+
+.FriendRequestCard button:active {
+  filter: brightness(0.9);
+  transform: scale(0.95);
+}

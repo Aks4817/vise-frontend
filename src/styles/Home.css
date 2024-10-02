@@ -1,0 +1,79 @@
+.Home {
+  display: flex;
+  flex: 1;
+  position: relative;
+  max-width: 100%;
+}
+
+.Home .sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 344px;
+  position: sticky;
+  top: 56px;
+  padding: 16px 20px 0 8px;
+  box-sizing: border-box;
+  align-self: flex-start;
+  height: calc(100vh - 56px);
+  overflow: overlay;
+  min-width: 240px;
+}
+
+.Home .people-you-may-know .title {
+  color: rgb(101, 103, 107);
+  font-size: 16px;
+  font-family: "SFUIText-Medium";
+  padding-left: 8px;
+  box-sizing: border-box;
+  margin-top: 16px;
+}
+
+.Home .people-you-may-know .contacts {
+  padding-top: 8px;
+}
+
+.Home .me-link {
+  min-height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 8px;
+  color: black;
+  text-decoration: none;
+}
+
+.Home .me-link .media {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.Home .me-link .name {
+  font-family: "SFUIText-Regular";
+  margin-left: 12px;
+}
+
+.Home .home-feed {
+  flex: 1;
+  padding: 28px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 680px;
+}
+
+@media (hover: hover) {
+  .Home .sidebar:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+
+  .Home .me-link:hover {
+    background-color: rgb(228, 230, 233);
+  }
+}
+
+.Home .me-link:active {
+  background-color: rgb(216, 217, 220);
+}

@@ -1,0 +1,74 @@
+.RelationshipBtn {
+  display: flex;
+  align-items: flex-end;
+  box-sizing: border-box;
+  column-gap: 8px;
+  margin-left: auto;
+}
+
+.RelationshipBtn button {
+  margin-left: auto;
+  height: 36px;
+  padding: 0 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: "SFUIText-Medium";
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+
+.RelationshipBtn .add-friend-btn,
+.RelationshipBtn .cancel-request-btn,
+.RelationshipBtn .accept-request-btn {
+  background-color: rgb(24, 119, 242);
+  color: white;
+}
+
+.RelationshipBtn .unfriend-btn,
+.RelationshipBtn .deny-request-btn {
+  background-color: rgb(242, 24, 119);
+  color: white;
+}
+
+.RelationshipBtn button .icon {
+  font-size: 18px;
+}
+
+.RelationshipBtn .is-friend {
+  height: 34px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  font-family: "SFUIText-Medium";
+  font-size: 14px;
+  border: 1px solid rgb(24, 119, 242);
+  border-radius: 6px;
+  margin-left: auto;
+  color: rgb(24, 119, 242);
+}
+
+.RelationshipBtn .is-friend .icon {
+  font-size: 18px;
+}
+
+.RelationshipBtn button.making-request {
+  filter: grayscale(0.5) opacity(0.5);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .RelationshipBtn button:hover {
+    filter: brightness(0.95);
+  }
+}
+
+.RelationshipBtn button:active {
+  filter: brightness(0.9);
+  transform: scale(0.95);
+}

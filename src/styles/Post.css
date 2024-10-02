@@ -1,0 +1,464 @@
+@keyframes like {
+  0% {
+  }
+  30% {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  60% {
+    transform: scale(1.3) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.Post {
+  width: min(100%, 680px);
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.263);
+  padding: 12px 16px 0 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.Post .info-bar {
+  display: flex;
+}
+
+.Post .info-bar .author-profile-pic .media {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.Post .info-bar a.full-name {
+  font-family: "SFUIText-Medium";
+  color: black;
+  text-decoration: none;
+  margin-top: 2px;
+  min-height: 17px;
+}
+
+.Post .info-bar > :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.Post .info-bar .time-ago {
+  font-size: 12px;
+  text-decoration: none;
+  color: gray;
+  margin-top: 2px;
+}
+
+.Post .info-bar .time-ago::after {
+  content: attr(data-descr);
+  top: 18px;
+}
+
+.Post .info-bar .more-options {
+  margin-left: auto;
+  position: relative;
+}
+
+.Post .info-bar .more-options > button {
+  background-color: transparent;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Post .info-bar .more-options > button img {
+  width: 20px;
+  height: 20px;
+}
+
+.Post .info-bar .more-options .dropdown,
+.Comment .more-options .dropdown {
+  width: 200px;
+  min-height: 62px;
+  background-color: white;
+  position: absolute;
+  top: 45px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.275);
+  border-radius: 8px;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  transition: 0.2s;
+}
+
+.Post .info-bar .more-options .dropdown,
+.Comment .more-options .dropdown {
+  right: 2px;
+}
+
+.Post .info-bar .more-options .dropdown .triangle,
+.Comment .more-options .dropdown .triangle {
+  background-color: white;
+  height: 12px;
+  width: 12px;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -6px;
+  right: 10px;
+}
+
+.Post .info-bar .more-options .dropdown > button,
+.Comment .more-options .dropdown > button {
+  height: 46px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-family: "SFUIText-Regular";
+  font-size: 14px;
+  column-gap: 8px;
+  padding-left: 12px;
+  border-radius: 6px;
+}
+
+.Post .info-bar .more-options .dropdown button .icon,
+.Comment .more-options .dropdown button .icon {
+  font-size: 24px;
+}
+
+.Post > .content {
+  margin-top: 4px;
+  margin-bottom: 12px;
+  line-height: 20px;
+}
+
+.Post .photo-container {
+  max-height: 520px;
+  width: calc(100% + 32px);
+  display: flex;
+  justify-content: center;
+  background-color: lightgray;
+  align-self: center;
+  z-index: 0;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.Post .photo-container .media {
+  min-width: calc(100% + 2px);
+  object-fit: contain;
+}
+
+.Post .counts {
+  margin-top: auto;
+  margin-bottom: 12px;
+  display: flex;
+  min-height: 18px;
+}
+
+.Post .counts .like-count,
+.Post .counts .comment-count {
+  cursor: pointer;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  color: rgb(101, 103, 107);
+  font-size: 14px;
+  font-family: inherit;
+  text-align: left;
+}
+
+.Post .counts .like-count .badge {
+  min-height: 18px;
+  min-width: 18px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(112, 163, 231), rgb(0, 97, 224));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.Post .counts .comment-count {
+  margin-left: auto;
+}
+
+.Post .counts .comment-count::after {
+  content: attr(data-descr);
+  top: 20px;
+}
+
+.Post .counts .like-count::after {
+  content: attr(data-descr);
+  top: 20px;
+}
+
+.Post .action-btns {
+  border-top: 1px solid lightgray;
+  display: flex;
+  padding: 4px;
+  box-sizing: border-box;
+  height: 44px;
+  column-gap: 4px;
+}
+
+.Post .action-btns button {
+  flex: 1;
+  border: none;
+  border-radius: 4px;
+  font-size: inherit;
+  cursor: pointer;
+  background-color: transparent;
+  color: rgb(101, 103, 107);
+  font-family: "SFUIText-Medium";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 6px;
+}
+
+.Post .action-btns button .icon {
+  font-size: 20px;
+}
+
+.Post .action-btns .like-btn.liked {
+  color: rgb(32, 120, 244);
+}
+
+.Post .action-btns .like-btn.liked .icon {
+  animation: like 0.6s;
+}
+
+.Post .comments {
+  border-top: 1px solid lightgray;
+}
+
+.Post .comment-bar {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  column-gap: 6px;
+}
+
+.Post .comment-bar a {
+  line-height: 0;
+}
+
+.Post .comment-bar .pfp-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 2px;
+}
+
+.Post .comment-bar .bubble {
+  background-color: rgb(240, 242, 245);
+  min-height: 36px;
+  border-radius: 18px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Post .comment-bar textarea {
+  background-color: transparent;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  height: 20px;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  line-height: 20px;
+}
+
+.Post .comment-bar textarea::placeholder {
+  color: rgb(101, 103, 107);
+}
+
+.Post .comment-bar textarea:focus {
+  outline: none;
+}
+
+.Post .view-prev-comments-btn {
+  font-size: 14px;
+  font-family: "SFUIText-Medium";
+  color: rgb(101, 103, 107);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.Post > .ConfirmDeletePopup {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: rgba(244, 244, 244, 0.8);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Post > .ConfirmDeletePopup .window {
+  width: 548px;
+  height: 182px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.Post > .ConfirmDeletePopup .title-bar {
+  min-height: 59px;
+  border-bottom: 1px solid rgb(222, 222, 222);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Post > .ConfirmDeletePopup .close-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #606770;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.Post > .ConfirmDeletePopup .title {
+  font-size: 20px;
+  font-family: "SFUIText-Semibold";
+}
+
+.Post > .ConfirmDeletePopup .content {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 12px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Post > .ConfirmDeletePopup .delete-btns {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 8px;
+}
+
+.Post > .ConfirmDeletePopup .delete-btns button {
+  min-height: 36px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: "SFUIText-Regular";
+  font-size: 14px;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Post > .ConfirmDeletePopup .cancel-btn {
+  color: rgb(24, 119, 242);
+  background-color: white;
+  width: 70px;
+}
+
+.Post > .ConfirmDeletePopup .confirm-btn {
+  background-color: rgb(242, 24, 119);
+  color: white;
+  width: 116px;
+}
+
+@media (hover: hover) {
+  .Post .info-bar a.full-name:hover {
+    text-decoration: underline;
+  }
+
+  .Post .info-bar .time-ago:hover::after {
+    transition-delay: 0.5s;
+  }
+
+  .Post .info-bar .more-options .dropdown button:hover,
+  .Comment .more-options .dropdown button:hover {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .Post .counts .like-count:hover,
+  .Post .counts .comment-count:hover {
+    text-decoration: underline;
+  }
+
+  .Post .action-btns button:hover,
+  .Post .info-bar .more-options > button:hover {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .Post .view-prev-comments-btn:hover {
+    text-decoration: underline;
+  }
+
+  .Post > .ConfirmDeletePopup .close-btn:hover {
+    background-color: rgb(242, 242, 242);
+  }
+
+  .Post > .ConfirmDeletePopup .delete-btns button:hover {
+    filter: brightness(0.95);
+  }
+}
+
+.Post .info-bar .more-options .dropdown button:active,
+.Comment .more-options .dropdown button:active {
+  background-color: rgb(229, 229, 229);
+}
+
+.Post .action-btns button:active,
+.Post .info-bar .more-options > button:active {
+  background-color: rgb(229, 229, 229);
+}
+
+.Post > .ConfirmDeletePopup .close-btn:active {
+  background-color: rgb(229, 229, 229);
+}
+
+.Post > .ConfirmDeletePopup .delete-btns button:active {
+  filter: brightness(0.9);
+  transform: scale(0.97);
+}

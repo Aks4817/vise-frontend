@@ -1,0 +1,231 @@
+.Comment {
+  display: flex;
+  margin-top: 8px;
+  column-gap: 6px;
+}
+
+.Comment .display {
+  min-width: 0;
+}
+
+.Comment .media.pfp-small {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 3px;
+}
+
+.Comment .bubble {
+  background-color: rgb(240, 242, 245);
+  min-width: 145px;
+  min-height: 51px;
+  border-radius: 18px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.Comment .author-full-name {
+  text-decoration: none;
+  color: black;
+  font-family: "SFUIText-Medium";
+  font-size: 12px;
+}
+
+.Comment .message {
+  margin-top: 2px;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+.Comment .bubble .like-count {
+  height: 22px;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  position: absolute;
+  right: 2px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  color: rgb(101, 103, 107);
+  font-size: 12px;
+  font-family: "SFUIText-Regular";
+  cursor: pointer;
+}
+
+.Comment .bubble .like-count::after {
+  content: attr(data-descr);
+  top: 25px;
+  justify-self: center;
+  align-self: center;
+}
+
+.Comment .bubble .like-count .badge {
+  height: 18px;
+  width: 18px;
+  margin: 0 4px 0 2px;
+  border-radius: 50%;
+  background: linear-gradient(rgb(112, 163, 231), rgb(0, 97, 224));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.Comment .bubble .like-count span {
+  margin-right: 4px;
+}
+
+.Comment .comment-btns {
+  color: rgb(101, 103, 107);
+  font-size: 12px;
+  margin-top: 2px;
+  display: flex;
+}
+
+.Comment .comment-btns .like-btn {
+  font-family: "SFUIText-Medium";
+  cursor: pointer;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  border: none;
+  margin-left: 12px;
+  padding: 0;
+}
+
+.Comment .comment-btns .like-btn.liked {
+  color: rgb(32, 120, 244);
+}
+
+.Comment .comment-btns .time-ago {
+  margin-left: 16px;
+  font-size: 12px;
+  color: gray;
+  text-decoration: none;
+}
+
+.Comment .comment-btns .time-ago::after {
+  content: attr(data-descr);
+  top: 18px;
+}
+
+.Comment .more-options {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.Comment .more-options > button {
+  min-width: 32px;
+  min-height: 32px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.Comment .more-options > button::after {
+  content: "Edit or delete this";
+  top: -25px;
+}
+
+.Comment .more-options > button img {
+  width: 16px;
+  height: 16px;
+}
+
+.Comment > :nth-child(2) > :first-child {
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+}
+
+.Comment .editing {
+  width: 100%;
+}
+
+.Comment .editing .bubble {
+  width: 100%;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.Comment .edit-message {
+  background-color: transparent;
+  resize: none;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  height: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  line-height: 20px;
+}
+
+.Comment .edit-message:focus {
+  outline: none;
+}
+
+.Comment .editing .cancel-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 12px;
+  color: rgb(32, 120, 244);
+}
+
+.Comment > a {
+  align-self: flex-start;
+}
+
+@media (hover: hover) {
+  .Comment .more-options > button {
+    opacity: 0;
+  }
+
+  .Comment:hover .more-options > button {
+    opacity: 1;
+  }
+
+  .Comment .author-full-name:hover {
+    text-decoration: underline;
+  }
+
+  .Comment .bubble .like-count:hover {
+    background-color: rgb(245, 245, 245);
+  }
+
+  .Comment .comment-btns .like-btn:hover {
+    text-decoration: underline;
+  }
+
+  .Comment .comment-btns .time-ago:hover::after {
+    transition-delay: 0.5s;
+  }
+
+  .Comment .more-options > button:hover::after {
+    transition-delay: 0.5s;
+  }
+
+  .Comment .more-options > button:hover {
+    background-color: rgb(240, 242, 245);
+  }
+
+  .Comment .editing .cancel-btn:hover {
+    text-decoration: underline;
+  }
+}
+
+.Comment .more-options > button:active {
+  background-color: rgb(229, 229, 229);
+}
